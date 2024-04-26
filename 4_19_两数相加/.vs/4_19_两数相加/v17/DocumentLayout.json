@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\github\\code-journey\\4_19_\u4E24\u6570\u76F8\u52A0\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A208F4AB-AC39-4503-B6DF-D02514FD1840}|4_19_\u4E24\u6570\u76F8\u52A0\\4_19_\u4E24\u6570\u76F8\u52A0.vcxproj|F:\\github\\code-journey\\4_19_\u4E24\u6570\u76F8\u52A0\\4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A208F4AB-AC39-4503-B6DF-D02514FD1840}|4_19_\u4E24\u6570\u76F8\u52A0\\4_19_\u4E24\u6570\u76F8\u52A0.vcxproj|solutionrelative:4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test.cpp",
+              "DocumentMoniker": "F:\\github\\code-journey\\4_19_\u4E24\u6570\u76F8\u52A0\\4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp",
+              "RelativeDocumentMoniker": "4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp",
+              "ToolTip": "F:\\github\\code-journey\\4_19_\u4E24\u6570\u76F8\u52A0\\4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp",
+              "RelativeToolTip": "4_19_\u4E24\u6570\u76F8\u52A0\\test.cpp",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAADcAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-19T13:55:01.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
