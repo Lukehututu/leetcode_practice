@@ -24,7 +24,10 @@ public:
 
 
 int main() {
-    vector<int> nums = { 2,2,1 };
-    cout << Solution().singleNumber(nums) << endl;
+    /*vector<int> nums = { 2,2,1 };
+    cout << Solution().singleNumber(nums) << endl;*/
+
+    string buffer = "+";
+    cout << buffer.compare("+");
 
 }
