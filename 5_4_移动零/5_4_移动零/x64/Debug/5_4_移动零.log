@@ -1,0 +1,4 @@
+﻿  FileName.cpp
+F:\github\Leetcode\5_4_移动零\5_4_移动零\FileName.cpp(10,17): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+F:\github\Leetcode\5_4_移动零\5_4_移动零\FileName.cpp(17,18): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  5_4_移动零.vcxproj -> F:\github\Leetcode\5_4_移动零\x64\Debug\5_4_移动零.exe

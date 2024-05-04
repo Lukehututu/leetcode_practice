@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\github\\Leetcode\\5_4_\u56DE\u6587\u94FE\u8868\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{66B60175-64A0-46F4-8D1C-10BB7E63D68F}|5_4_\u56DE\u6587\u94FE\u8868\\5_4_\u56DE\u6587\u94FE\u8868.vcxproj|F:\\github\\Leetcode\\5_4_\u56DE\u6587\u94FE\u8868\\5_4_\u56DE\u6587\u94FE\u8868\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{66B60175-64A0-46F4-8D1C-10BB7E63D68F}|5_4_\u56DE\u6587\u94FE\u8868\\5_4_\u56DE\u6587\u94FE\u8868.vcxproj|solutionrelative:5_4_\u56DE\u6587\u94FE\u8868\\test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "test.cpp",
+              "DocumentMoniker": "F:\\github\\Leetcode\\5_4_\u56DE\u6587\u94FE\u8868\\5_4_\u56DE\u6587\u94FE\u8868\\test.cpp",
+              "RelativeDocumentMoniker": "5_4_\u56DE\u6587\u94FE\u8868\\test.cpp",
+              "ToolTip": "F:\\github\\Leetcode\\5_4_\u56DE\u6587\u94FE\u8868\\5_4_\u56DE\u6587\u94FE\u8868\\test.cpp",
+              "RelativeToolTip": "5_4_\u56DE\u6587\u94FE\u8868\\test.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-04T12:59:22.575Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
