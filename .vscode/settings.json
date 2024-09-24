@@ -25,6 +25,9 @@
         "xhash": "cpp",
         "ranges": "cpp",
         "xlocinfo": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "iosfwd": "cpp",
+        "xlocbuf": "cpp",
+        "algorithm": "cpp"
     }
 }
