@@ -22,6 +22,9 @@
         "tuple": "cpp",
         "unordered_set": "cpp",
         "utility": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "ranges": "cpp",
+        "xlocinfo": "cpp",
+        "xlocale": "cpp"
     }
 }
