@@ -28,6 +28,8 @@
         "xlocale": "cpp",
         "iosfwd": "cpp",
         "xlocbuf": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "initializer_list": "cpp",
+        "limits": "cpp"
     }
 }
