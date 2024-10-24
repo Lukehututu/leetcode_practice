@@ -50,18 +50,40 @@
 // @lc code=start
 class Solution {
 public:
+
+    //  v1 -- 借助新数组旋转
+    // void rotate(vector<vector<int>>& matrix) {
+    //     // 算出矩阵长度
+    //     int len = matrix[0].size();
+    //     auto new_matrix = matrix;
+    //     for(int i = 0; i < len; i++)
+    //     {
+    //         for(int j = 0; j < len;j++)
+    //         {
+    //             new_matrix[j][len - i - 1] = matrix[i][j];
+    //         }
+    //     }
+    //     matrix = new_matrix;
+    //     return ;
+    // }
+
+    //  v2 -- 在原地旋转
     void rotate(vector<vector<int>>& matrix) {
         // 算出矩阵长度
         int len = matrix[0].size();
-        auto new_matrix = matrix;
-        for(int i = 0; i < len; i++)
-        {
-            for(int j = 0; j < len;j++)
+        for(int i = 0; i < len / 2 + 1; i++)
+        {   
+            for(int j = i; j < len - i - 1; j++)
             {
-                new_matrix[j][len - i - 1] = matrix[i][j];
+                //  记录原先的变量
+                auto tmp = matrix[i][j];
+                //  将四个变量连续调整
+                matrix[i][j] = matrix[len - j - 1][i];
+                matrix[len - j - 1][i] = matrix[len - i - 1][len - j - 1];
+                matrix[len - i - 1][len - j - 1] = matrix[j][len - i - 1];
+                matrix[j][len - i - 1] = tmp;
             }
         }
-        matrix = new_matrix;
         return ;
     }
 };
