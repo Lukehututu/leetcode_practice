@@ -53,24 +53,37 @@
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-        vector<int> ans;
+        vector<int> ans(temperatures.size(),0);
 
-        for(int i = 0;i < temperatures.size() - 1;++i){
-            int num = 1;
-            int j = i + 1;
-            for(;j < temperatures.size();++j){
-                if(temperatures[j] > temperatures[i])
-                    break;
-                num++;
+        //维护一个单调栈
+        stack<int> monotonic_stack;
+        int preIndex = 0;   //维护栈顶坐标
+        for (int i = 0; i < temperatures.size(); ++i) {
+            //如果栈空，直接压栈
+            if (monotonic_stack.empty()) {
+                preIndex = i;
+                monotonic_stack.push(i);
             }
-            if(j == temperatures.size()){
-                ans.push_back(0);
+
+            while (temperatures[i] > temperatures[preIndex] && !monotonic_stack.empty()) {
+                ans[preIndex] = i - preIndex;
+                monotonic_stack.pop();
+                if (!monotonic_stack.empty())
+                    preIndex = monotonic_stack.top();
             }
-            else{
-                ans.push_back(num);
+
+            if (temperatures[i] <= temperatures[preIndex]) {
+                preIndex = i;
+                monotonic_stack.push(i);
+            }
+            //否则就是栈为空了
+            else {
+                preIndex = i;
+                monotonic_stack.push(i);
             }
         }
-        ans.push_back(0);
+        //如果栈不为空，那将其中所有下标对应的ans都置为0
+        //但实际上一开始初始化为0了，因此就不用再手动设置了
         return ans;
     }
 };
