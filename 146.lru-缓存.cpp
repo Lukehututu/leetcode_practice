@@ -72,16 +72,46 @@
 class LRUCache {
 public:
     LRUCache(int capacity) {
-        
+        capa_ = capacity;
     }
     
     int get(int key) {
-        
+        auto pair = map_.find(key);
+        if(pair == map_.end())return -1;
+        adjustList(key);
+        return pair->second;
     }
     
     void put(int key, int value) {
-        
+        if(map_.find(key) != map_.end()){
+            map_[key] = value;
+            //  变更queue
+            adjustList(key);
+            return;
+        }
+        if(map_.size() == capa_){
+            //  剔除list队尾元素
+            int lru = lsRu_.back();
+            lsRu_.pop_back();
+            map_.erase(lru);
+        }
+
+        lsRu_.push_front(key);
+        map_[key] = value;
+        itMap_[key] = lsRu_.begin();
     }
+
+    void adjustList(int key){
+        lsRu_.erase(itMap_[key]);
+        // 插入到表头
+        lsRu_.push_front(key);
+        itMap_[key] = lsRu_.begin();
+    }
+
+    unordered_map<int,list<int>::iterator> itMap_;
+    unordered_map<int,int> map_; // 保存键值对
+    list<int> lsRu_;// 保存最近使用的 键
+    int capa_;  // 容量
 };
 
 /**
