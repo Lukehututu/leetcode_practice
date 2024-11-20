@@ -61,11 +61,33 @@
 // @lc code=start
 class Solution {
 public:
-    int numIslands(vector<vector<char>>& grid) {
-        //  深度优先搜索，把所有遇到的标记为i（i从2开始）
-        //  维护一个最大值Max 岛屿数就是Max - 1
-        
 
+    void Dfs(vector<vector<char>>& grid,int i,int j) {
+        int row = grid.size();
+        int col = grid[0].size();
+
+        grid[i][j] = '0';
+        if(i - 1 >= 0 && grid[i - 1][j] == '1')Dfs(grid,i - 1,j);
+        if(i + 1 < row && grid[i + 1][j] == '1')Dfs(grid,i + 1,j);
+        if(j - 1 >= 0 && grid[i][j - 1] == '1')Dfs(grid,i,j - 1);
+        if(j + 1 < col && grid[i][j + 1] == '1')Dfs(grid,i,j + 1);
+    }
+
+    int numIslands(vector<vector<char>>& grid) {
+        if(grid.size() == 0) return 0;
+
+        int nums_island = 0;
+        
+        for(int i = 0; i < grid.size(); ++i) {
+            for(int j = 0; j < grid[0].size(); ++j) {
+                if(grid[i][j] == '1'){
+                    ++nums_island;
+                    Dfs(grid,i,j);
+                }
+            }
+        }
+        
+        return nums_island;
     }
 };
 // @lc code=end
