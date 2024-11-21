@@ -95,23 +95,19 @@ public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
         if (n == 0) return 0;
+        int prev_froze = 0;
+        int hold = -prices[0];
+        int sell = 0;
 
-        vector<vector<int>> dp(n, vector<int>(3, 0));
-
-        // 初始状态
-        dp[0][0] = 0;               // 冷冻期
-        dp[0][1] = -prices[0];      // 持有股票
-        dp[0][2] = 0;               // 非冷冻期
-
-        // 动态规划求解
         for (int i = 1; i < n; ++i) {
-            dp[i][0] = dp[i - 1][1] + prices[i];               // 卖出股票
-            dp[i][1] = max(dp[i - 1][1], dp[i - 1][2] - prices[i]); // 买入或持有
-            dp[i][2] = max(dp[i - 1][2], dp[i - 1][0]);        // 冷冻结束或无操作
+            int new_froze = hold + prices[i]; // 使用旧的 hold 计算 froze
+            hold = max(hold, sell - prices[i]);
+            sell = max(sell, prev_froze);     // 使用旧的 froze 计算 sell
+            prev_froze = new_froze;           // 更新 prev_froze
         }
+        return max(sell, prev_froze);
 
-        // 最后一天的最大收益
-        return max(dp[n - 1][0], dp[n - 1][2]);
+        
     }
 };
 // @lc code=end
