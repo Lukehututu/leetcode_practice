@@ -60,11 +60,22 @@
  */
 
 // @lc code=start
+
 class Solution {
 public:
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
-
+        //按升高的降序排列,同身高按人数升序
+        sort(people.begin(),people.end(),[](const vector<int>& a,const vector<int>& b){
+            return a[0] > b[0] || (a[0] == b[0] && a[1] < b[1]); 
+            });
+        
+        vector<vector<int>> ans;
+        for(const vector<int>& vec : people) {
+            ans.insert(ans.begin() + vec[1],vec);
+        }
+        return ans;
     }
 };
+
 // @lc code=end
 

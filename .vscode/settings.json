@@ -30,6 +30,7 @@
         "xlocbuf": "cpp",
         "algorithm": "cpp",
         "initializer_list": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "iostream": "cpp"
     }
 }
