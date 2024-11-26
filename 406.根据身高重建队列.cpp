@@ -64,6 +64,12 @@
 class Solution {
 public:
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+        /*
+            从特殊解推导一般解
+            先考虑身高都相同但vec[i][1]不相同
+            考虑vec[i][1]不相同但身高相同
+            想想怎样插入到队列中
+         */
         //按升高的降序排列,同身高按人数升序
         sort(people.begin(),people.end(),[](const vector<int>& a,const vector<int>& b){
             return a[0] > b[0] || (a[0] == b[0] && a[1] < b[1]); 
@@ -71,7 +77,12 @@ public:
         
         vector<vector<int>> ans;
         for(const vector<int>& vec : people) {
-            ans.insert(ans.begin() + vec[1],vec);
+            if(vec[1] <= ans.size()) {
+                ans.insert(ans.begin() + vec[1],vec);
+            }
+            else {
+                ans.push_back(vec);
+            }
         }
         return ans;
     }

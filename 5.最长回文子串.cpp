@@ -44,13 +44,25 @@
  */
 
 // @lc code=start
-#include <string>
-using namespace std;
+
 
 class Solution {
 public:
     string longestPalindrome(string s) {
-
+        int l{},r{};
+        for(int i = 0;i < s.size() * 2 - 1; ++i) {
+            int left = i / 2, right = (i + 1) / 2;
+            while(left >= 0 && right < s.size() && s[left] == s[right]) {
+                --left;
+                ++right;
+            }
+            if(right - 1 - left - 1 > r - l) {
+                r = right - 1;
+                l = left + 1;
+            }
+        }
+        
+        return string(s.begin() + l,s.begin() + r + 1);
     }
 };
 // @lc code=end
