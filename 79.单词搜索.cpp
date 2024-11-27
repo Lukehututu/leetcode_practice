@@ -65,14 +65,59 @@
 // @lc code=start
 class Solution {
 public:
-    bool exist(vector<vector<char>>& board, string word) {
-        for(int i = 0; i < board.size(); ++i) {
-            for(int j = 0; j < board[0].size(); ++j){
-                
-
-            }
-
+    bool isExist{false};
+   
+    void verifyExist(int i, int j, string &word, int n, vector<vector<char>> &board, vector<vector<bool>>& isChoose)
+    {
+        if (n == word.size())
+        {
+            isExist = true;
         }
+        else
+        {
+            if (i - 1 >= 0 && isChoose[i - 1][j] == false && board[i - 1][j] == word[n]) {
+                isChoose[i - 1][j] = true;
+                verifyExist(i - 1, j, word, n + 1, board,isChoose);
+                isChoose[i - 1][j] = false;
+            }
+                
+            if (i + 1 < board.size() && isChoose[i + 1][j] == false  && board[i + 1][j] == word[n]) {
+                isChoose[i + 1][j] = true;
+                verifyExist(i + 1, j, word, n + 1, board,isChoose);
+                isChoose[i + 1][j] = false;
+            }
+            if (j - 1 >= 0 && isChoose[i][j - 1] == false  && board[i][j - 1] == word[n]) {
+                isChoose[i][j - 1] = true;
+                verifyExist(i, j - 1, word, n + 1, board,isChoose);
+                isChoose[i][j - 1] = false;
+            }
+            if (j + 1 < board[0].size() && isChoose[i][j + 1] == false  && board[i][j + 1] == word[n]) {
+                isChoose[i][j + 1] = true;
+                verifyExist(i, j + 1, word, n + 1, board,isChoose);
+                isChoose[i][j + 1] = false;
+            }
+        }
+    }
+    bool exist(vector<vector<char>> &board, string word)
+    {
+        vector<vector<bool>> isChoose(board.size(),vector<bool>(board[0].size(),false));
+        for (int i = 0; i < board.size(); ++i)
+        {
+            if (isExist)
+                break;
+            for (int j = 0; j < board[0].size(); ++j)
+            {
+                if(isExist)
+                    break;
+                if (board[i][j] == word[0])
+                {
+                    isChoose[i][j] = true;
+                    verifyExist(i, j, word, 1, board,isChoose);
+                    isChoose[i][j] = false;
+                }
+            }
+        }
+        return isExist;
     }
 };
 // @lc code=end
