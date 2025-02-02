@@ -72,15 +72,44 @@
 // @lc code=start
 class Solution {
 public:
+
+    bool isIPv4(string IP) {
+        vector<string> ip;
+        split(IP, ip, '.');
+        if(ip.size() != 4) return false;
+        for(auto str : ip) {
+            if(str.size() == 0 || str.size() > 3 || (str.size() > 1 && str[0] == '0')) return  false;
+            for(auto ch : str) if(!isdigit(ch)) return false;
+            int n = stoi(str);
+            if(n < 0 || n > 255) return false;
+        }
+        return true;
+    }
+
+    bool isIPv6(string IP) {
+        vector<string> ip;
+        split(IP, ip, ':');
+        if(ip.size() != 8) return false;
+        for(auto str : ip) {
+            if(str.size() == 0 || str.size() > 4) return false;
+            for(auto ch : str) {
+                if(ch < '0' || ch > '9' && (ch < 'A' || ch > 'F') && (ch < 'a' || ch > 'f')) return false;
+            }
+        }
+        return true;
+    }
+
+    void split(string IP, vector<string>& ip, char ch) {
+        stringstream ss(IP);
+        string tmp;
+        while(getline(ss, tmp, ch)) ip.push_back(tmp);
+        if(IP.size() > 0 && IP.back() == ch)ip.push_back({});
+    }
+
+
     string validIPAddress(string queryIP) {
-        int pos = queryIP.find('.');
-        if(pos != queryIP.end()) {
-            int n = stoi(queryIP.substr(pos));
-        }
-        else {
-
-        }
-
+        if(isIPv4(queryIP)) return "IPv4";
+        else if(isIPv6(queryIP)) return "IPv6";
         return "Neither";
     }
 };
