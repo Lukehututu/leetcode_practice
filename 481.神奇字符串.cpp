@@ -56,7 +56,26 @@
 class Solution {
 public:
     int magicalString(int n) {
-        
+        int index = 3;
+        std::vector<bool> s{1, 0, 0};
+        char c;
+        for (int i = 3; i < n;) {
+            if (s[index - 1] == 1) {//当前插入的一定跟末尾字符不同
+                c = s[i - 1] == 1 ? 0 : 1;
+                s.push_back(c);
+                ++i;
+            }
+            else if (s[index - 1] == 0) {
+                c = s[i - 1] == 1 ? 0 : 1;
+                s.push_back(c);
+                s.push_back(c);
+                i += 2;
+            }
+            index++;
+        }
+        int cnt = 0;
+        for (int i = 0; i < n; ++i) if (s[i] == 1) cnt++;
+        return cnt;
     }
 };
 // @lc code=end
