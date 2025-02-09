@@ -53,21 +53,38 @@
 class Solution {
 public:
 
-    //1.暴力解法
+    // //1.暴力解法
+    // vector<int> nextGreaterElements(vector<int>& nums) {
+    //     int n = nums.size();
+    //     vector<int> res(n, -1);
+
+    //     for (int i = 0; i < n; ++i) {
+    //         int j = (i + 1) % n;
+    //         while (j < n && nums[j] <= nums[i]) {
+    //             j = (j + 1) % n;
+    //             if (j == i) break;
+    //         }
+    //         if (j == i) continue;
+    //         res[i] = nums[j];
+    //     }
+        
+    //     return res;
+    // }
+
+    //2.单调栈
     vector<int> nextGreaterElements(vector<int>& nums) {
         int n = nums.size();
         vector<int> res(n, -1);
+        stack<int> st;
 
-        for (int i = 0; i < n; ++i) {
-            int j = (i + 1) % n;
-            while (j < n && nums[j] <= nums[i]) {
-                j = (j + 1) % n;
-                if (j == i) break;
+        for(int i = 0; i < 2 * n - 1; ++i) {
+            while(!st.empty() && nums[st.top()] < nums[i % n]) {
+                res[st.top()] = nums[i % n];
+                st.pop();
             }
-            if (j == i) continue;
-            res[i] = nums[j];
+            st.push(i % n);
         }
-        
+
         return res;
     }
 };
