@@ -31,6 +31,9 @@
         "algorithm": "cpp",
         "initializer_list": "cpp",
         "limits": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string": "cpp",
+        "charconv": "cpp",
+        "xmemory": "cpp"
     }
 }
