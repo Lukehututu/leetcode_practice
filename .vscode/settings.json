@@ -34,6 +34,7 @@
         "iostream": "cpp",
         "string": "cpp",
         "charconv": "cpp",
-        "xmemory": "cpp"
+        "xmemory": "cpp",
+        "cmath": "cpp"
     }
 }
