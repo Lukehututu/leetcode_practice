@@ -18,48 +18,47 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(!head) return head;
-        ListNode* pre = nullptr;
+        if (!head || k == 1) return head;
         ListNode* cur = head;
-        ListNode* post = head->next;
         ListNode* end = nullptr;
+        ListNode* lastEnd = nullptr;
         bool getHead = false;
-        int cnt{};
-        while(1) {
-            //1.剩下的要不要反转
-            cnt = k - 1;
-            auto tmp = cur;
-            while(cnt--) {
-                if(tmp) tmp = tmp->next;
-                else break;
-            }
-            if(cnt != 0) break;
-            cnt = k;
-            auto start = cur;
-            while(cnt--) {
-                cur->next = pre;
-                pre = cur;
-                cur = post;
-                post = cur->next;
-                if(post == nullptr) {
-                    cur->next = pre;
+        //看够不够k个
+        while (1) {
+
+            int cnt = k - 1;
+            end = cur;
+            while (cnt) {
+                if (end) {
+                    end = end->next;
+                }
+                if (!end) {
                     break;
                 }
+                cnt--;
             }
-
-            //拼接前一组
-            if(cnt == 0) { // 说明pre是这一组最后一个
-                if(!end) end->next = pre;
+            if (cnt != 0) { //直接结束
+                break;
             }
-            else {//否则就是cur是最后一个
-                if(!end) end->next = cur;
+            if(lastEnd)
+                lastEnd->next = end;
+            //记录下一组第一个
+            ListNode* nextHead = end->next;
+            lastEnd = cur;
+            //上一组最后一个
+            //否则维护每一组的头尾节点 然后头插法
+            while (cur != end) {
+                auto tmp = cur;
+                cur = cur->next;
+                tmp->next = end->next;
+                end->next = tmp;
             }
-            start->next = cur;
-            if(!getHead) {
-                head = pre;
+            //如果是第一次那要修改头节点
+            if (!getHead) {
+                head = end;
                 getHead = true;
-                end = start;
             }
+            cur = nextHead;
 
         }
         return head;
